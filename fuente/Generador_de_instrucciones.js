@@ -148,8 +148,8 @@ export default ({ Selectores_tipos_de_nodo_y_contenidos_de_texto, líneas_del_ar
     - Configuración del alejamiento y acercamiento -
     ------------------------------------------------
     */
-    /* Medimos el ancho del documento. */ const ancho_del_documento = documento.clientWidth
-    /* y la altura de la ventana. */ const altura_de_la_ventana = window.innerHeight
+    /* Medimos la altura */ const altura_de_la_ventana = window.innerHeight
+    /* y anchura de la ventana. */ const anchura_de_la_ventana = window.innerWidth
 
     /* Medimos el. */ const circuito = document.querySelector("#_Circuito"); circuito.style.transformOrigin = "0 0"
     /* ancho y alto del circuito */ const anchura_del_circuito = circuito.clientWidth; const altura_del_circuito = circuito.clientHeight
@@ -167,13 +167,13 @@ export default ({ Selectores_tipos_de_nodo_y_contenidos_de_texto, líneas_del_ar
     | #Anchura_del_circuito ⚙️ Anchura del circuito
     [ Anchura del circuito ]
     */
-    /* Si al ajustar la altura, el ancho del circuito es mayor que el ancho del documento, */ if (anchura_del_circuito > ancho_del_documento) {
-        /* calculamos el factor de escala necesario para que el ancho del circuito sea igual al ancho del documento menos 95 pixeles. */ factor_de_escala = ((ancho_del_documento - 95) / anchura_del_circuito - 1) * (100 / pixeles_por_cada_entero_de_escala); circuito.style.transform = `scale(${1 + (factor_de_escala * (pixeles_por_cada_entero_de_escala / 100))})`}; let desplazamiento_horizontal = 0; let desplazamiento_vertical = 0
+    /* Si al ajustar la altura, el ancho del circuito es mayor que el ancho de la ventana, */ if (anchura_del_circuito * (1 + (factor_de_escala * (pixeles_por_cada_entero_de_escala / 100))) > anchura_de_la_ventana) {
+        /* calculamos el factor de escala necesario para que el ancho del circuito sea igual al ancho de la ventana. */ factor_de_escala = (anchura_de_la_ventana / anchura_del_circuito - 1) * (100 / pixeles_por_cada_entero_de_escala); circuito.style.transform = `scale(${1 + (factor_de_escala * (pixeles_por_cada_entero_de_escala / 100))})`}
     /*
     | #Factor_de_escala_relativo_a_la_ventana 📝 Factor de escala relativo a la ventana
     [ Factor de escala relativo a la ventana ]
     */
-    const factor_de_escala_relativo_a_la_ventana = 1 + (factor_de_escala * (pixeles_por_cada_entero_de_escala / 100))
+    const factor_de_escala_relativo_a_la_ventana = 1 + (factor_de_escala * (pixeles_por_cada_entero_de_escala / 100)); let desplazamiento_horizontal = 0; let desplazamiento_vertical = 0
     /*
     | #Acercamiento_y_alejamiento Acercamiento y alejamiento
     ------------------------------

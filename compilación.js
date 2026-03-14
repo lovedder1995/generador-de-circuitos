@@ -30236,8 +30236,8 @@ var Generador_de_instrucciones_default = ({ Selectores_tipos_de_nodo_y_contenido
       document.querySelectorAll(`a.nodo[href^="./${archivo}"]`).forEach((nodo) => nodo.classList.remove("resaltado"));
     });
   });
-  const ancho_del_documento = documento.clientWidth;
   const altura_de_la_ventana = window.innerHeight;
+  const anchura_de_la_ventana = window.innerWidth;
   const circuito = document.querySelector("#_Circuito");
   circuito.style.transformOrigin = "0 0";
   const anchura_del_circuito = circuito.clientWidth;
@@ -30246,14 +30246,13 @@ var Generador_de_instrucciones_default = ({ Selectores_tipos_de_nodo_y_contenido
   let factor_de_escala = 1;
   factor_de_escala = (altura_de_la_ventana / altura_del_circuito - 1) * (100 / pixeles_por_cada_entero_de_escala);
   circuito.style.transform = `scale(${1 + factor_de_escala * (pixeles_por_cada_entero_de_escala / 100)} )`;
-  if (anchura_del_circuito > ancho_del_documento) {
-    factor_de_escala = ((ancho_del_documento - 95) / anchura_del_circuito - 1) * (100 / pixeles_por_cada_entero_de_escala);
+  if (anchura_del_circuito * (1 + factor_de_escala * (pixeles_por_cada_entero_de_escala / 100)) > anchura_de_la_ventana) {
+    factor_de_escala = (anchura_de_la_ventana / anchura_del_circuito - 1) * (100 / pixeles_por_cada_entero_de_escala);
     circuito.style.transform = `scale(${1 + factor_de_escala * (pixeles_por_cada_entero_de_escala / 100)})`;
   }
-  ;
+  const factor_de_escala_relativo_a_la_ventana = 1 + factor_de_escala * (pixeles_por_cada_entero_de_escala / 100);
   let desplazamiento_horizontal = 0;
   let desplazamiento_vertical = 0;
-  const factor_de_escala_relativo_a_la_ventana = 1 + factor_de_escala * (pixeles_por_cada_entero_de_escala / 100);
   window.addEventListener("wheel", (evento) => {
     evento.preventDefault();
     const l\u00EDmites_del_cicuito = circuito.getBoundingClientRect();
