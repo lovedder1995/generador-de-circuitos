@@ -1,3 +1,4 @@
+const nombre_del_selector = ({ selector }) => selector.replace("#", "").replace(".", "").replaceAll("@", "").replaceAll("/", "")
 const Generar_hipertexto = ({ nodos }) => { let hipertexto = ""
     /*
     | .Generador_de_hipertexto Generador de hipertexto
@@ -34,7 +35,7 @@ const Generar_hipertexto = ({ nodos }) => { let hipertexto = ""
         | #Nombre_del_sector_simple Simple
         [ Nombre del sector simple ]
         */
-            `<a ${nodo.sector.startsWith("#") ? "id" : "class"}="${nodo.sector.replace("#", "").replace(".", "")}"></a>`}<div>${nodo.nodos ?
+            `<a ${nodo.sector.startsWith("#") ? "id" : "class"}="${nombre_del_selector({selector: nodo.sector})}"></a>`}<div>${nodo.nodos ?
         /*
         | #Nodos_en_un_sector 🔁 Nodos
         [ Nodos en un sector ]
@@ -50,9 +51,9 @@ const Generar_hipertexto = ({ nodos }) => { let hipertexto = ""
         | #Nodos_conectados (condicional) Nodos conectados
         [ Nodos conectados ]
         */
-        } else if (nodo.conexión) { hipertexto += `<div class="conexión">${nodo.conexión.map(conexión => `<a ${conexión.startsWith("#") ? "id" : "class"}="${conexión.replace("#", "").replace(".", "")}"></a>`).join("")}</div>`
+        } else if (nodo.conexión) { hipertexto += `<div class="conexión">${nodo.conexión.map(conexión => `<a ${conexión.startsWith("#") ? "id" : "class"}="${nombre_del_selector({selector: conexión})}"></a>`).join("")}</div>`
         /*
         | #Nodo_simple Simple
         [ Nodo simple ]
         */
-        } else if (typeof nodo === "string") { hipertexto += `<a ${nodo.startsWith("#") ? "id" : "class"}="${nodo.replace("#", "").replace(".", "")}"></a>`} } ); return hipertexto }; export default Generar_hipertexto
+        } else if (typeof nodo === "string") { hipertexto += `<a ${nodo.startsWith("#") ? "id" : "class"}="${nombre_del_selector({selector: nodo})}"></a>`} } ); return hipertexto }; export default Generar_hipertexto

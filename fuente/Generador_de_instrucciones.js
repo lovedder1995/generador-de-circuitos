@@ -93,7 +93,7 @@ export default ({ Selectores_tipos_de_nodo_y_contenidos_de_texto, líneas_del_ar
     /* Las referencias externas son */ const Referencias_externas = Nodos_no_seleccionados_incluidas_las_referencias_externas
     /* los nodos no seleccionados con el nombre de clase igual que el nombre de algún módulo en el manifiesto. */ .filter(({ selector }) => líneas_del_archivo_del_manifiesto.find(({ contenido_de_texto }) => contenido_de_texto.includes(`"${selector.replace(".", "")}":`)))
 
-    /* Debemos marcar que las referencias externas */ .map(({ selector }) => ({ selector, contenido_de_texto: selector.replace(".", ""), tipos_de_nodo: ["referencia-externa"],
+    /* Debemos marcar que las referencias externas */ .map(({ selector }) => ({ selector: selector.replaceAll("@", "").replaceAll("/", ""), contenido_de_texto: selector.replace(".", ""), tipos_de_nodo: ["referencia-externa"],
         /* provienen del manifiesto, */ archivo: "package.json",
             /* así como de cuál línea. */ número_de_línea: líneas_del_archivo_del_manifiesto.findIndex(({ contenido_de_texto }) => contenido_de_texto.includes(`"${selector.replace(".", "")}":`)) + 1 }))
 

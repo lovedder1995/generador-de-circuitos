@@ -1,6 +1,6 @@
 {
   "name": "generador-de-circuitos",
-  "version": "2026.3.14-1",
+  "version": "2026.3.14-2",
   "type": "module",
   "main": "compilación.js",
   "devDependencies": {
