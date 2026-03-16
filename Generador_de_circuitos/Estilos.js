@@ -56,7 +56,7 @@
 /*
 [ Entrada ]
 */
-/* - Color de fondo: Verde translúcido */ "#_Circuito > div > .sector > a { background-color: #80ff8025; }" +
+/* - Color de fondo: Verde translúcido */ "#_Circuito > .sector > a, #_Circuito > .sector > .sector > a { background-color: #80ff8025; }" +
 /*
 [ Conexión ]
 */
