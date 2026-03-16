@@ -192,7 +192,9 @@
                                         ]
                                     }
                                 ]
-                            },
+                            }
+                        ],
+                        "nodos": [
                             {
                                 "sector": ".Tipos_de_nodos"
                             }

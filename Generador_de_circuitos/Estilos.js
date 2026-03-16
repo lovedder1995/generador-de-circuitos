@@ -29,9 +29,13 @@
 [ Sectores como grupos ]
  */
 /* - Color de fondo: Transparente */ ".sector:has(> .sector:first-child) { background-color: transparent;" +
-/* - Margen superior e inferior: 10 veces el tamaño de la tipografía */ "margin: 10rem 0;" +
+/* - Margen: 0 */ "margin: 0;" +
 /* - Holgura: 0 */ "padding: 0; }" +
 /* - Borde derecho: 2 veces el tamaño de la tipografía, sólido, color amarillo translúcido */ ".sector > .sector:first-child { border-right: 2rem solid #ffff0040; }" +
+/*
+[ Nodos agrupados ]
+ */
+/* - Margen superior e inferior: 10 veces el tamaño de la tipografía */ ".sector > .sector:first-child ~ div { margin-top: 10rem; margin-bottom: 10rem; }" +
 /*
 | #Estilos-Nodos 📝 Nodos
 ---------
