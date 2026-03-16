@@ -92,8 +92,8 @@ export default () => {
     */
     /* Generamos las instrucciones. */ let instrucciones = `(${Generar_instrucciones.toString()})({ Selectores_tipos_de_nodo_y_contenidos_de_texto: ${JSON.stringify(Selectores_tipos_de_nodo_y_contenidos_de_texto)}, líneas_del_archivo_del_circuito: ${JSON.stringify(líneas_del_archivo_del_circuito)}, líneas_del_archivo_del_manifiesto: ${JSON.stringify(líneas_del_archivo_del_manifiesto)}, Tipos_de_nodos: ${JSON.stringify(Tipos_de_nodos)} })`
     /*
-    | #Comprimir_las_instrucciones Comprimir
-    [ Comprimir las instrucciones ]
+    | #Comprimir Comprimir
+    [ Comprimir ]
     */
     /* Comprimimos las instrucciones. */ instrucciones = minify_sync(instrucciones).code
     /*
@@ -102,7 +102,7 @@ export default () => {
     - Generar el hipertexto -
     -------------------------
     */
-    /* Generamos el hipertexto. */ const hipertexto = Generar_hipertexto({ nodos: JSON.parse(archivo_del_circuito) })
+    /* Generamos el hipertexto. */ const hipertexto = JSON.parse(archivo_del_circuito).map(grupo => `<div>${Generar_hipertexto({ nodos: grupo })}</div>`).join("")
     /*
     | #Generar_el_circuito Generar el circuito
     -----------------------
@@ -111,7 +111,7 @@ export default () => {
     */
     /* Agregamos los estilos, */ const circuito = `<style>${Estilos}</style>` +
     /* la sección de errores, */ "<div id=\"_Error_en_el_circuito\" class=\"sector\"><a class=\"nodo\"></a><div class=\"sector\"></div></div>" +
-    /* el contenido del circuito */ `<div class="sector" style="background-color: transparent;"><div id="_Circuito" style="flex-shrink: 0;"><div>${hipertexto}</div></div></div>` +
+    /* el contenido del circuito */ `<div class="sector" style="background-color: transparent;"><div id="_Circuito" style="flex-shrink: 0;"><div class="sector">${hipertexto}</div></div></div>` +
     /* y las instrucciones. */ `<script>${instrucciones}</script>`
     /*
     | #Guardar_el_circuito Guardar el circuito

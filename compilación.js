@@ -30352,8 +30352,8 @@ var Generador_de_circuitos_default = () => {
   });
   let instrucciones = `(${Generador_de_instrucciones_default.toString()})({ Selectores_tipos_de_nodo_y_contenidos_de_texto: ${JSON.stringify(Selectores_tipos_de_nodo_y_contenidos_de_texto)}, l\xEDneas_del_archivo_del_circuito: ${JSON.stringify(l\u00EDneas_del_archivo_del_circuito)}, l\xEDneas_del_archivo_del_manifiesto: ${JSON.stringify(l\u00EDneas_del_archivo_del_manifiesto)}, Tipos_de_nodos: ${JSON.stringify(Tipos_de_nodos_default)} })`;
   instrucciones = minify_sync(instrucciones).code;
-  const hipertexto = Generador_de_hipertexto_default({ nodos: JSON.parse(archivo_del_circuito) });
-  const circuito = `<style>${Estilos_default}</style><div id="_Error_en_el_circuito" class="sector"><a class="nodo"></a><div class="sector"></div></div><div class="sector" style="background-color: transparent;"><div id="_Circuito" style="flex-shrink: 0;"><div>${hipertexto}</div></div></div><script>${instrucciones}</script>`;
+  const hipertexto = JSON.parse(archivo_del_circuito).map((grupo) => `<div>${Generador_de_hipertexto_default({ nodos: grupo })}</div>`).join("");
+  const circuito = `<style>${Estilos_default}</style><div id="_Error_en_el_circuito" class="sector"><a class="nodo"></a><div class="sector"></div></div><div class="sector" style="background-color: transparent;"><div id="_Circuito" style="flex-shrink: 0;"><div class="sector">${hipertexto}</div></div></div><script>${instrucciones}</script>`;
   fs.writeFileSync(path.join(process.cwd(), "circuito.md"), circuito);
 };
 export {
