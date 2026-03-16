@@ -26,6 +26,13 @@
 */
 /* - Acomodo de los hijos: De arriba abajo */ ".sector > div:last-child { flex-direction: column; }" +
 /*
+[ Sectores como grupos ]
+ */
+/* - Color de fondo: Transparente */ ".sector:has(> .sector:first-child) { background-color: transparent;" +
+/* - Margen superior e inferior: 10 veces el tamaño de la tipografía */ "margin: 10rem 0;" +
+/* - Holgura: 0 */ "padding: 0; }" +
+/* - Borde derecho: 2 veces el tamaño de la tipografía, sólido, color amarillo translúcido */ ".sector > .sector:first-child { border-right: 2rem solid #ffff0040; }" +
+/*
 | #Estilos-Nodos 📝 Nodos
 ---------
 - Nodos -

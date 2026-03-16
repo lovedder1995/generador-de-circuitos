@@ -2,10 +2,10 @@ import fs from "fs"
 import path from "path"
 import ignore from "ignore"
 import { minify_sync } from "terser"
-import Estilos from "./fuente/Estilos.js"
-import Generar_hipertexto from "./fuente/Generador_de_hipertexto.js"
-import Tipos_de_nodos from "./fuente/Tipos_de_nodos.js"
-import Generar_instrucciones from "./fuente/Generador_de_instrucciones.js"
+import Estilos from "./Generador_de_circuitos/Estilos.js"
+import Generar_hipertexto from "./Generador_de_circuitos/Generador_de_hipertexto.js"
+import Tipos_de_nodos from "./Generador_de_circuitos/Generador_de_instrucciones/Tipos_de_nodos.js"
+import Generar_instrucciones from "./Generador_de_circuitos/Generador_de_instrucciones.js"
 export default () => {
     const gitignore = ignore().add(fs.existsSync(path.join(process.cwd(), ".gitignore")) ? fs.readFileSync(path.join(process.cwd(), ".gitignore"), "utf8") : "")
     const ignorado_por_el_formateador = ignore().add(fs.existsSync(path.join(process.cwd(), ".ignorado_por_el_formateador")) ? fs.readFileSync(path.join(process.cwd(), ".ignorado_por_el_formateador"), "utf8") : "")
@@ -102,7 +102,7 @@ export default () => {
     - Generar el hipertexto -
     -------------------------
     */
-    /* Generamos el hipertexto. */ const hipertexto = JSON.parse(archivo_del_circuito).map(grupo => `<div>${Generar_hipertexto({ nodos: grupo })}</div>`).join("")
+    /* Generamos el hipertexto. */ const hipertexto = Generar_hipertexto({ nodos: JSON.parse(archivo_del_circuito) } )
     /*
     | #Generar_el_circuito Generar el circuito
     -----------------------
@@ -111,7 +111,7 @@ export default () => {
     */
     /* Agregamos los estilos, */ const circuito = `<style>${Estilos}</style>` +
     /* la sección de errores, */ "<div id=\"_Error_en_el_circuito\" class=\"sector\"><a class=\"nodo\"></a><div class=\"sector\"></div></div>" +
-    /* el contenido del circuito */ `<div class="sector" style="background-color: transparent;"><div id="_Circuito" style="flex-shrink: 0;"><div class="sector">${hipertexto}</div></div></div>` +
+    /* el contenido del circuito */ `<div class="sector" style="background-color: transparent;"><div id="_Circuito" style="flex-shrink: 0;">${hipertexto}</div></div>` +
     /* y las instrucciones. */ `<script>${instrucciones}</script>`
     /*
     | #Guardar_el_circuito Guardar el circuito

@@ -1,6 +1,6 @@
 [
-    [
-        {
+    {
+        "sector": {
             "sector": "#Compilador",
             "nodos": [
                 {
@@ -49,189 +49,183 @@
                 },
                 "#Ejecutar_la_opción_elegida_para_compilar"
             ]
-        }
-    ],
-    [
-        {
-            "sector": ".Generador_de_circuitos",
-            "nodos": [
-                {
-                    "sector": "#Archivos_que_podrían_contener_referencias_al_circuito",
-                    "nodos": [
-                        "#No_es_un_archivo_JavaScript",
-                        {
-                            "conexión": [
-                                "#Está_en_la_lista_de_archivos_que_deben_ser_ignorados",
-                                ".ignore"
-                            ]
-                        },
-                        {
-                            "sector": "#Líneas",
-                            "nodos": [
-                                "#No_refiere_al_circuito",
-                                "#Refiere_al_circuito"
-                            ]
-                        }
-                    ]
-                },
-                "#Selectores_tipos_de_nodo_y_contenidos_de_texto",
-                {
-                    "sector": {
-                        "conexión": [
-                            ".Generador_de_instrucciones",
-                            "#Generar_las_instrucciones"
+        },
+        "nodos": [
+            {
+                "sector": [
+                    {
+                        "sector": ".Generador_de_circuitos",
+                        "nodos": [
+                            {
+                                "sector": "#Archivos_que_podrían_contener_referencias_al_circuito",
+                                "nodos": [
+                                    "#No_es_un_archivo_JavaScript",
+                                    {
+                                        "conexión": [
+                                            "#Está_en_la_lista_de_archivos_que_deben_ser_ignorados",
+                                            ".ignore"
+                                        ]
+                                    },
+                                    {
+                                        "sector": "#Líneas",
+                                        "nodos": [
+                                            "#No_refiere_al_circuito",
+                                            "#Refiere_al_circuito"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "#Selectores_tipos_de_nodo_y_contenidos_de_texto",
+                            {
+                                "sector": {
+                                    "conexión": [
+                                        ".Generador_de_instrucciones",
+                                        "#Generar_las_instrucciones"
+                                    ]
+                                },
+                                "nodos": [
+                                    {
+                                        "conexión": [
+                                            ".terser",
+                                            "#Comprimir"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "conexión": [
+                                    ".Generador_de_hipertexto",
+                                    "#Generar_el_hipertexto"
+                                ]
+                            },
+                            {
+                                "conexión": [
+                                    "#Generar_el_circuito",
+                                    ".Estilos"
+                                ]
+                            },
+                            "#Guardar_el_circuito"
+                        ]
+                    }
+                ],
+                "nodos": [
+                    {
+                        "sector": [
+                            {
+                                "sector": ".Generador_de_instrucciones",
+                                "nodos": [
+                                    "#Nodos_que_hay_en_el_circuito",
+                                    {
+                                        "sector": "#Error_en_el_circuito",
+                                        "nodos": [
+                                            {
+                                                "sector": "#Selectores",
+                                                "nodos": [
+                                                    "#Sin_tipos_de_nodo_ni_contenido_de_texto",
+                                                    "#Duplicados",
+                                                    {
+                                                        "conexión": [
+                                                            "#Con_tipos_de_nodo_desconocido",
+                                                            ".Tipos_de_nodos"
+                                                        ]
+                                                    },
+                                                    "#No_seleccionan_nada"
+                                                ]
+                                            },
+                                            {
+                                                "sector": "#Error-Nodos",
+                                                "nodos": [
+                                                    "#Duplicados_que_deberían_ser_únicos",
+                                                    "#No_seleccionados"
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "#Referencias_externas",
+                                    {
+                                        "sector": "#Nodos_seleccionados",
+                                        "nodos": [
+                                            {
+                                                "sector": "#Aplicación_de_las_propiedades",
+                                                "nodos": [
+                                                    "#Archivo_y_número_de_línea",
+                                                    "#Tipos_de_nodo",
+                                                    "#Contenido_de_texto"
+                                                ]
+                                            },
+                                            "#Resaltar_todos_los_que_están_siendo_seleccionados_desde_el_mismo_archivo"
+                                        ]
+                                    },
+                                    {
+                                        "sector": "#Navegación",
+                                        "nodos": [
+                                            {
+                                                "sector": "#Configuración_del_alejamiento_y_acercamiento",
+                                                "nodos": [
+                                                    "#Pixeles_por_cada_entero_de_escala",
+                                                    "#Altura_del_circuito",
+                                                    "#Anchura_del_circuito"
+                                                ]
+                                            },
+                                            "#Factor_de_escala_relativo_a_la_ventana",
+                                            {
+                                                "sector": "#Acercamiento_y_alejamiento",
+                                                "nodos": [
+                                                    {
+                                                        "sector": "#Cálculo_del_factor_de_escala",
+                                                        "nodos": [
+                                                            "#Acercamiento",
+                                                            "#Alejamiento"
+                                                        ]
+                                                    },
+                                                    "#Aplicación_del_factor_de_escala"
+                                                ]
+                                            },
+                                            {
+                                                "sector": "#Arrastre",
+                                                "nodos": [
+                                                    "#Cálculo_del_desplazamiento",
+                                                    "#Aplicación_del_desplazamiento",
+                                                    "#Dejar_de_arrastrar"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "sector": ".Tipos_de_nodos"
+                            }
                         ]
                     },
-                    "nodos": [
-                        {
-                            "conexión": [
-                                ".terser",
-                                "#Comprimir"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "conexión": [
-                        ".Generador_de_hipertexto",
-                        "#Generar_el_hipertexto"
-                    ]
-                },
-                {
-                    "conexión": [
-                        "#Generar_el_circuito",
-                        ".Estilos"
-                    ]
-                },
-                "#Guardar_el_circuito"
-            ]
-        }
-    ],
-    [
-        {
-            "sector": ".Generador_de_instrucciones",
-            "nodos": [
-                "#Nodos_que_hay_en_el_circuito",
-                {
-                    "sector": "#Error_en_el_circuito",
-                    "nodos": [
-                        {
-                            "sector": "#Selectores",
-                            "nodos": [
-                                "#Sin_tipos_de_nodo_ni_contenido_de_texto",
-                                "#Duplicados",
-                                {
-                                    "conexión": [
-                                        "#Con_tipos_de_nodo_desconocido",
-                                        ".Tipos_de_nodos"
-                                    ]
-                                },
-                                "#No_seleccionan_nada"
-                            ]
-                        },
-                        {
-                            "sector": "#Error-Nodos",
-                            "nodos": [
-                                "#Duplicados_que_deberían_ser_únicos",
-                                "#No_seleccionados"
-                            ]
-                        }
-                    ]
-                },
-                "#Referencias_externas",
-                {
-                    "sector": "#Nodos_seleccionados",
-                    "nodos": [
-                        {
-                            "sector": "#Aplicación_de_las_propiedades",
-                            "nodos": [
-                                "#Archivo_y_número_de_línea",
-                                "#Tipos_de_nodo",
-                                "#Contenido_de_texto"
-                            ]
-                        },
-                        "#Resaltar_todos_los_que_están_siendo_seleccionados_desde_el_mismo_archivo"
-                    ]
-                },
-                {
-                    "sector": "#Navegación",
-                    "nodos": [
-                        {
-                            "sector": "#Configuración_del_alejamiento_y_acercamiento",
-                            "nodos": [
-                                "#Pixeles_por_cada_entero_de_escala",
-                                "#Altura_del_circuito",
-                                "#Anchura_del_circuito"
-                            ]
-                        },
-                        "#Factor_de_escala_relativo_a_la_ventana",
-                        {
-                            "sector": "#Acercamiento_y_alejamiento",
-                            "nodos": [
-                                {
-                                    "sector": "#Cálculo_del_factor_de_escala",
-                                    "nodos": [
-                                        "#Acercamiento",
-                                        "#Alejamiento"
-                                    ]
-                                },
-                                "#Aplicación_del_factor_de_escala"
-                            ]
-                        },
-                        {
-                            "sector": "#Arrastre",
-                            "nodos": [
-                                "#Cálculo_del_desplazamiento",
-                                "#Aplicación_del_desplazamiento",
-                                "#Dejar_de_arrastrar"
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "sector": ".Generador_de_hipertexto",
-            "nodos": [
-                {
-                    "sector": "#Nodos",
-                    "nodos": [
-                        {
-                            "sector": "#Sector",
-                            "nodos": [
-                                {
-                                    "sector": "#Nombre_del_sector",
-                                    "nodos": [
-                                        "#Nombre_del_sector_con_conexión_de_nodos",
-                                        "#Nombre_del_sector_simple"
-                                    ]
-                                },
-                                "#Nodos_en_un_sector"
-                            ]
-                        },
-                        {
-                            "sector": "#Nodo",
-                            "nodos": [
-                                "#Nodos_conectados",
-                                "#Nodo_simple"
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "sector": ".Estilos",
-            "nodos": [
-                "#Estilos-Error_en_el_circuito",
-                "#Estilos-Sectores",
-                "#Estilos-Nodos"
-            ]
-        }
-    ],
-    [
-        {
-            "sector": ".Tipos_de_nodos"
-        }
-    ]
+                    {
+                        "sector": ".Generador_de_hipertexto",
+                        "nodos": [
+                            {
+                                "sector": "#Nodos",
+                                "nodos": [
+                                    {
+                                        "sector": "#Sector",
+                                        "nodos": [
+                                            "#Nodos_en_un_sector"
+                                        ]
+                                    },
+                                    "#Nodos_conectados",
+                                    "#Nodo"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "sector": ".Estilos",
+                        "nodos": [
+                            "#Estilos-Error_en_el_circuito",
+                            "#Estilos-Sectores",
+                            "#Estilos-Nodos"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 ]

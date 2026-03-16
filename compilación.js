@@ -30090,42 +30090,18 @@ function minify_sync(files, options, _fs_module) {
   return val.value;
 }
 
-// fuente/Estilos.js
-var Estilos_default = "div:has(> a) { display: flex; align-items: flex-start; } #_Error_en_el_circuito:has(> :empty) { display: none; }.sector { background-color: #80ff8010;display: flex; flex-shrink: 0;margin: 1rem;padding: 1rem; }.sector > div:last-child { flex-direction: column; }.nodo, a.nodo { background-color: #00808010;padding: 1rem;margin: 1rem;font-size: 3rem;border-style: solid;border-color: #0000009c;border-width: 0.1rem; }.nodo.sin-revisar { border: 0.1rem solid #ff00009c; }#_Circuito > div > .sector > a { background-color: #80ff8025; }.conexi\xF3n a + a { border-left: none; margin-left: -1.5rem; } .conexi\xF3n a:not(:first-child) { border-left: none; margin-left: -1.5rem; } .conexi\xF3n a:not(:last-child) { border-right: none; }.nodo.condicional { padding-left: 1.25rem !important; border-left-style: dotted !important; border-left-width: 1rem !important; border-left-color: #ff80f99c !important; }.nodo.referencia { background-color: #ff8c0025; }.nodo.referencia-externa { background-color: #80008025; }.nodo.error { background-color: #ff000025; }.nodo.sin-elementos { background-color: #ff000025; }.nodo.resaltado { border-color: #ff8c00 !important; }";
+// Generador_de_circuitos/Estilos.js
+var Estilos_default = "div:has(> a) { display: flex; align-items: flex-start; } #_Error_en_el_circuito:has(> :empty) { display: none; }.sector { background-color: #80ff8010;display: flex; flex-shrink: 0;margin: 1rem;padding: 1rem; }.sector > div:last-child { flex-direction: column; }.sector:has(> .sector:first-child) { background-color: transparent;margin: 10rem 0;padding: 0; }.sector > .sector:first-child { border-right: 2rem solid #ffff0040; }.nodo, a.nodo { background-color: #00808010;padding: 1rem;margin: 1rem;font-size: 3rem;border-style: solid;border-color: #0000009c;border-width: 0.1rem; }.nodo.sin-revisar { border: 0.1rem solid #ff00009c; }#_Circuito > div > .sector > a { background-color: #80ff8025; }.conexi\xF3n a + a { border-left: none; margin-left: -1.5rem; } .conexi\xF3n a:not(:first-child) { border-left: none; margin-left: -1.5rem; } .conexi\xF3n a:not(:last-child) { border-right: none; }.nodo.condicional { padding-left: 1.25rem !important; border-left-style: dotted !important; border-left-width: 1rem !important; border-left-color: #ff80f99c !important; }.nodo.referencia { background-color: #ff8c0025; }.nodo.referencia-externa { background-color: #80008025; }.nodo.error { background-color: #ff000025; }.nodo.sin-elementos { background-color: #ff000025; }.nodo.resaltado { border-color: #ff8c00 !important; }";
 
-// fuente/Generador_de_hipertexto.js
+// Generador_de_circuitos/Generador_de_hipertexto.js
 var nombre_del_selector = ({ selector }) => selector.replace("#", "").replace(".", "").replaceAll("@", "").replaceAll("/", "");
 var Generar_hipertexto = ({ nodos }) => {
   let hipertexto = "";
   nodos.forEach((nodo) => {
     if (nodo.sector) {
-      hipertexto += `<div class="sector">${nodo.sector.conexi\u00F3n ? (
-        /*
-        | #Nombre_del_sector Nombre del sector
-        ---------------------
-        - Nombre del sector -
-        ---------------------
-        */
-        /*
-        | #Nombre_del_sector_con_conexión_de_nodos (condicional) Con conexión de nodos
-        [ Nombre del sector con conexión de nodos ]
-        */
-        Generar_hipertexto({ nodos: [nodo.sector] })
-      ) : (
-        /*
-        | #Nombre_del_sector_simple Simple
-        [ Nombre del sector simple ]
-        */
-        `<a ${nodo.sector.startsWith("#") ? "id" : "class"}="${nombre_del_selector({ selector: nodo.sector })}"></a>`
-      )}<div>${nodo.nodos ? (
-        /*
-        | #Nodos_en_un_sector 🔁 Nodos
-        [ Nodos en un sector ]
-        */
-        Generar_hipertexto({ nodos: nodo.nodos })
-      ) : ""}</div></div>`;
+      hipertexto += `<div class="sector">${Generar_hipertexto({ nodos: Array.isArray(nodo.sector) ? nodo.sector : [nodo.sector] })}${nodo.nodos ? `<div>${Generar_hipertexto({ nodos: nodo.nodos })}</div>` : ""}</div>`;
     } else if (nodo.conexi\u00F3n) {
-      hipertexto += `<div class="conexi\xF3n">${nodo.conexi\u00F3n.map((conexi\u00F3n) => `<a ${conexi\u00F3n.startsWith("#") ? "id" : "class"}="${nombre_del_selector({ selector: conexi\u00F3n })}"></a>`).join("")}</div>`;
+      hipertexto += `<div class="conexi\xF3n">${Generar_hipertexto({ nodos: nodo.conexi\u00F3n })}</div>`;
     } else if (typeof nodo === "string") {
       hipertexto += `<a ${nodo.startsWith("#") ? "id" : "class"}="${nombre_del_selector({ selector: nodo })}"></a>`;
     }
@@ -30134,7 +30110,7 @@ var Generar_hipertexto = ({ nodos }) => {
 };
 var Generador_de_hipertexto_default = Generar_hipertexto;
 
-// fuente/Tipos_de_nodos.js
+// Generador_de_circuitos/Generador_de_instrucciones/Tipos_de_nodos.js
 var Tipos_de_nodos_default = [
   /*
   | .Tipos_de_nodos 📝 Tipos de nodos
@@ -30147,7 +30123,7 @@ var Tipos_de_nodos_default = [
   "sin-elementos"
 ];
 
-// fuente/Generador_de_instrucciones.js
+// Generador_de_circuitos/Generador_de_instrucciones.js
 var Generador_de_instrucciones_default = ({ Selectores_tipos_de_nodo_y_contenidos_de_texto, l\u00EDneas_del_archivo_del_circuito, l\u00EDneas_del_archivo_del_manifiesto, Tipos_de_nodos }) => {
   const documento = document.documentElement;
   documento.style.overflow = "hidden";
@@ -30352,8 +30328,8 @@ var Generador_de_circuitos_default = () => {
   });
   let instrucciones = `(${Generador_de_instrucciones_default.toString()})({ Selectores_tipos_de_nodo_y_contenidos_de_texto: ${JSON.stringify(Selectores_tipos_de_nodo_y_contenidos_de_texto)}, l\xEDneas_del_archivo_del_circuito: ${JSON.stringify(l\u00EDneas_del_archivo_del_circuito)}, l\xEDneas_del_archivo_del_manifiesto: ${JSON.stringify(l\u00EDneas_del_archivo_del_manifiesto)}, Tipos_de_nodos: ${JSON.stringify(Tipos_de_nodos_default)} })`;
   instrucciones = minify_sync(instrucciones).code;
-  const hipertexto = JSON.parse(archivo_del_circuito).map((grupo) => `<div>${Generador_de_hipertexto_default({ nodos: grupo })}</div>`).join("");
-  const circuito = `<style>${Estilos_default}</style><div id="_Error_en_el_circuito" class="sector"><a class="nodo"></a><div class="sector"></div></div><div class="sector" style="background-color: transparent;"><div id="_Circuito" style="flex-shrink: 0;"><div class="sector">${hipertexto}</div></div></div><script>${instrucciones}</script>`;
+  const hipertexto = Generador_de_hipertexto_default({ nodos: JSON.parse(archivo_del_circuito) });
+  const circuito = `<style>${Estilos_default}</style><div id="_Error_en_el_circuito" class="sector"><a class="nodo"></a><div class="sector"></div></div><div class="sector" style="background-color: transparent;"><div id="_Circuito" style="flex-shrink: 0;">${hipertexto}</div></div><script>${instrucciones}</script>`;
   fs.writeFileSync(path.join(process.cwd(), "circuito.md"), circuito);
 };
 export {
