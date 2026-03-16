@@ -25,7 +25,7 @@ const Generar_hipertexto = ({ nodos }) => { let hipertexto = ""
         | #Nodos_en_un_sector 🔁 Nodos
         [ Nodos en un sector ]
         */
-        `${nodo.nodos ? `<div>${Generar_hipertexto({ nodos: nodo.nodos })}</div>` : ""}</div>`
+        `${nodo.nodos ? `<div>${Generar_hipertexto({ nodos: Array.isArray(nodo.nodos) ? nodo.nodos : [nodo.nodos] })}</div>` : ""}</div>`
 
         /*
         | #Nodos_conectados (condicional) 🔁 Nodos conectados

@@ -30099,7 +30099,7 @@ var Generar_hipertexto = ({ nodos }) => {
   let hipertexto = "";
   nodos.forEach((nodo) => {
     if (nodo.sector) {
-      hipertexto += `<div class="sector">${Generar_hipertexto({ nodos: Array.isArray(nodo.sector) ? nodo.sector : [nodo.sector] })}${nodo.nodos ? `<div>${Generar_hipertexto({ nodos: nodo.nodos })}</div>` : ""}</div>`;
+      hipertexto += `<div class="sector">${Generar_hipertexto({ nodos: Array.isArray(nodo.sector) ? nodo.sector : [nodo.sector] })}${nodo.nodos ? `<div>${Generar_hipertexto({ nodos: Array.isArray(nodo.nodos) ? nodo.nodos : [nodo.nodos] })}</div>` : ""}</div>`;
     } else if (nodo.conexi\u00F3n) {
       hipertexto += `<div class="conexi\xF3n">${Generar_hipertexto({ nodos: nodo.conexi\u00F3n })}</div>`;
     } else if (typeof nodo === "string") {
