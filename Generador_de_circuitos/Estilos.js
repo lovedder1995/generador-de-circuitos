@@ -24,7 +24,7 @@
 /*
 [ Hijos de los sectores ]
 */
-/* - Acomodo de los hijos: De arriba abajo */ ".sector > div:last-child { flex-direction: column; }" +
+/* - Acomodo de los hijos: De arriba abajo */ ".sector > div:last-child:not(:only-child) { flex-direction: column; }" +
 /*
 [ Sectores como grupos ]
  */
