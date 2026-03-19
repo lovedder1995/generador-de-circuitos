@@ -175,7 +175,7 @@ export default ({ Selectores_tipos_de_nodo_y_contenidos_de_texto, líneas_del_ar
     */
     const factor_de_escala_relativo_a_la_ventana = 1 + (factor_de_escala * (pixeles_por_cada_entero_de_escala / 100)); let desplazamiento_horizontal = 0; let desplazamiento_vertical = 0
     /*
-    | #Acercamiento_y_alejamiento Acercamiento y alejamiento
+    | #Acercamiento_y_alejamiento (pendiente) Acercamiento y alejamiento
     ------------------------------
     - Acercamiento y alejamiento -
     ------------------------------
@@ -210,7 +210,7 @@ export default ({ Selectores_tipos_de_nodo_y_contenidos_de_texto, líneas_del_ar
         /* Teniendo calculado el desplazamiento */ desplazamiento_horizontal += posición_horizontal_del_cursor - (posición_horizontal_del_cursor * desplazamiento_necesario_para_mantener_el_cursor_en_el_mismo_punto); desplazamiento_vertical += posición_vertical_del_cursor - (posición_vertical_del_cursor * desplazamiento_necesario_para_mantener_el_cursor_en_el_mismo_punto)
         /* y la escala, los aplicamos al circuito. */ circuito.style.transform = `translate(${desplazamiento_horizontal}px, ${desplazamiento_vertical}px) scale(${nuevo_factor_de_escala})`}, { passive: false } )
     /*
-    | #Arrastre Arrastre
+    | #Arrastre (pendiente) Arrastre
     ------------
     - Arrastre -
     ------------

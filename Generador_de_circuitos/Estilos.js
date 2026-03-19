@@ -50,9 +50,9 @@
 /* - Color del borde: Negro translúcido */ "border-color: #0000009c;" +
 /* - Ancho del borde: 0.1 veces el tamaño de la tipografía */ "border-width: 0.1rem; }" +
 /*
-[ Sin revisar ]
+[ Oculto ]
 */
-/* - Borde: 0.1 veces el tamaño de la tipografía, sólido, color rojo translúcido */ ".nodo.sin-revisar { border: 0.1rem solid #ff00009c; }" +
+/* - Borde: 0.5 veces el tamaño de la tipografía, línea punteada, color blanco translúcido */ ".nodo.oculto { border: 0.5rem dashed #ffffff40; }" +
 /*
 [ Entrada ]
 */
@@ -78,9 +78,9 @@
 */
 /* - Color de fondo: Rojo translúcido */ ".nodo.error { background-color: #ff000025; }" +
 /*
-[ Sin elementos ]
+[ Pendiente ]
 */
-/* - Color de fondo: Rojo translúcido */ ".nodo.sin-elementos { background-color: #ff000025; }" +
+/* - Contorno: 1 vez el tamaño de la tipografía, doble, color amarillo translúcido */ ".nodo.pendiente { outline: 1rem double #ffff0040; }" +
 /*
 [ Resaltado ]
 */

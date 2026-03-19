@@ -6,7 +6,12 @@
                 {
                     "sector": "#Configuración",
                     "nodos": [
-                        "#Archivo_de_entrada",
+                        {
+                            "conexión": [
+                                "#Archivo_de_entrada",
+                                ".Generador_de_circuitos"
+                            ]
+                        },
                         "#Archivo_de_salida",
                         "#Sistema_de_módulos",
                         "#Información_sobre_la_compilación",
