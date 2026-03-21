@@ -54,6 +54,10 @@
 */
 /* - Borde: 0.5 veces el tamaño de la tipografía, línea punteada, color blanco translúcido */ ".nodo.oculto { border: 0.5rem dashed #ffffff40; }" +
 /*
+[ Visible ]
+*/
+/* - Color de fondo: Azul translúcido */ ".nodo.visible { background-color: #0000ff25; }" +
+/*
 [ Entrada ]
 */
 /* - Color de fondo: Verde translúcido */ "#_Circuito > .sector > a, #_Circuito > .sector > .sector > a { background-color: #80ff8025; }" +

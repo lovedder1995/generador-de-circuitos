@@ -56,30 +56,31 @@ const Configuración = { bundle: true,
     */
     /* Cuando se termine de compilar, generamos el circuito. */ plugins: [ { name: "Generador de circuitos", setup(compilar) { compilar.onEnd(() => { generar_circuito() } ) } } ] }
 /*
-| #Menú 📝 Menú
 --------
 - Menú -
 --------
 */
 const Opciones_disponibles = {
     /*
-    | #Compilar_una_vez (condicional) ▶️ Compilar una vez
+    | #Compilar_una_vez (condicional visible) ▶️ Compilar una vez
     [ Compilar una vez ]
     */
     "Compilar una vez": () => { esbuild.build(Configuración).catch((error) => { console.error(error); process.exit(1) } ) },
     /*
-    | #Compilar_y_volver_a_compilar_cada_vez_que_se_modifique_un_archivo_que_forme_parte_de_la_compilación (condicional) 🔁 Compilar y volver a compilar</br>cada vez que se modifique un archivo</br>que forme parte de la compilación
+    | #Compilar_y_volver_a_compilar_cada_vez_que_se_modifique_un_archivo_que_forme_parte_de_la_compilación (condicional visible) 🔁 Compilar y volver a compilar</br>cada vez que se modifique un archivo</br>que forme parte de la compilación
     [ Compilar y volver a compilar cada vez que se modifique un archivo que forme parte de la compilación ]
     */
     "Compilar y volver a compilar cada vez que se modifique un archivo que forme parte de la compilación": () => { esbuild.context(Configuración).then(contexto => { contexto.watch() } ).catch((error) => { console.error(error); process.exit(1) } ) } }
-
+/*
+| #Menú (visible) 📝 Menú
+*/
 /* El menú */ const elección = await prompts([
     /* nos permitirá */ { message: "Selecciona una opción para compilar:",
         /* seleccionar */ type: "select",
         /* una opción */ name: "opción",
         /* entre las opciones disponibles: */ choices: Object.keys(Opciones_disponibles).map(opción => ({ title: opción, value: opción } ) ) } ] ); if (!elección.opción) process.exit(0)
 /*
-| #Ejecutar_la_opción_elegida_para_compilar Ejecutar la opción elegida para compilar
+| #Ejecutar_la_opción_elegida_para_compilar (pendiente) Ejecutar la opción elegida para compilar
 --------------------------------------------
 - Ejecutar la opción elegida para compilar -
 --------------------------------------------

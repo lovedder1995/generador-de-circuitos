@@ -6,5 +6,6 @@ export default [
     ==================
     */
     "condicional",
+    "visible",
     "oculto",
     "pendiente"]
