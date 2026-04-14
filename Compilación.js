@@ -31671,4 +31671,4 @@ No se puede leer el archivo o tiene un error de sintaxis: \xAB${Ubicaci\u00F3n_d
 export {
   Generador_de_circuitos_default as default
 };
-//# sourceMappingURL=compilaci%C3%B3n.js.map
+//# sourceMappingURL=Compilaci%C3%B3n.js.map

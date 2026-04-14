@@ -1,10 +1,10 @@
 {
   "name": "generador-de-circuitos",
-  "version": "2026.4.14-1",
+  "version": "2026.4.14-2",
   "type": "module",
-  "main": "compilación.js",
+  "main": "Compilación.js",
   "scripts": {
-    "Generar-circuito": "node -e \"import Generar_circuito from './compilación.js'; Generar_circuito()\""
+    "Generar-circuito": "node -e \"import Generar_circuito from './Compilación.js'; Generar_circuito()\""
   },
   "devDependencies": {
     "esbuild": "^0.27.3",

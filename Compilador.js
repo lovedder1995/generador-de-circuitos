@@ -42,7 +42,7 @@ const Configuración = {
 |             "Texto"
 |           ],
     */
-    outfile: "compilación.js",
+    outfile: "Compilación.js",
     /*
 |         },
 |         {
