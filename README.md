@@ -1,5 +1,5 @@
 # Instalación
 
 ```bash
-npm install --save-dev github:lovedder1995/generador-de-circuitos#2026.3.20-1
+npm install --save-dev github:lovedder1995/generador-de-circuitos#2026.4.14-1
 ```
