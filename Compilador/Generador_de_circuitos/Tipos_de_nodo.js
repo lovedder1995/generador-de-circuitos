@@ -9,4 +9,5 @@ export default {
     "Derivado": "🔎",
     "Ramificación": "🧵",
     "Cesto": "🛒",
+    "Evento": "👀",
     "Estilos": "🎨" }

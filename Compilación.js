@@ -30759,6 +30759,7 @@ var Tipos_de_nodo_default = {
   "Derivado": "\u{1F50E}",
   "Ramificaci\xF3n": "\u{1F9F5}",
   "Cesto": "\u{1F6D2}",
+  "Evento": "\u{1F440}",
   "Estilos": "\u{1F3A8}"
 };
 
