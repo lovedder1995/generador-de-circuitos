@@ -1,5 +1,6 @@
 export default {
     "Lista": "🗂️",
+    "Cesto": "🛒",
     "Número": "#️⃣",
     "Texto": "🅰️",
     "Lógica": "💡",
@@ -8,6 +9,6 @@ export default {
     "Error": "❌",
     "Derivado": "🔎",
     "Ramificación": "🧵",
-    "Cesto": "🛒",
     "Evento": "👀",
-    "Estilos": "🎨" }
+    "Estilos": "🎨",
+    "Animación": "🎬" }

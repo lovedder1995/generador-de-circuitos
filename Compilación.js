@@ -30750,6 +30750,7 @@ var import_json5 = __toESM(require_lib(), 1);
 // Compilador/Generador_de_circuitos/Tipos_de_nodo.js
 var Tipos_de_nodo_default = {
   "Lista": "\u{1F5C2}\uFE0F",
+  "Cesto": "\u{1F6D2}",
   "N\xFAmero": "#\uFE0F\u20E3",
   "Texto": "\u{1F170}\uFE0F",
   "L\xF3gica": "\u{1F4A1}",
@@ -30758,9 +30759,9 @@ var Tipos_de_nodo_default = {
   "Error": "\u274C",
   "Derivado": "\u{1F50E}",
   "Ramificaci\xF3n": "\u{1F9F5}",
-  "Cesto": "\u{1F6D2}",
   "Evento": "\u{1F440}",
-  "Estilos": "\u{1F3A8}"
+  "Estilos": "\u{1F3A8}",
+  "Animaci\xF3n": "\u{1F3AC}"
 };
 
 // Compilador/Generador_de_circuitos/Tipos_de_referencia.js
@@ -30774,7 +30775,10 @@ var Tipos_de_referencia_default = {
   "L\xF3gica": "\u{1F4A1}",
   "Procedimiento": "\u{1F4DD}",
   "Instancia": "\u25B6\uFE0F",
-  "Instancia recursiva": "\u{1F501}"
+  "Instancia recursiva": "\u{1F501}",
+  "Evento": "\u{1F440}",
+  "Estilos": "\u{1F3A8}",
+  "Animaci\xF3n": "\u{1F3AC}"
 };
 
 // Compilador/Generador_de_circuitos/Generador_de_instrucciones.js

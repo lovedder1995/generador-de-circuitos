@@ -8,4 +8,7 @@ export default {
     "Lógica": "💡",
     "Procedimiento": "📝",
     "Instancia": "▶️",
-    "Instancia recursiva": "🔁" }
+    "Instancia recursiva": "🔁",
+    "Evento": "👀",
+    "Estilos": "🎨",
+    "Animación": "🎬" }
